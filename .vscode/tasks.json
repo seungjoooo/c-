@@ -13,8 +13,8 @@
             "command": "g++",
             "args": [
 				"-g",
-                "${fileDirname}\\**.cpp",
-               // "${file}",
+                //"${fileDirname}\\**.cpp",
+               "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
