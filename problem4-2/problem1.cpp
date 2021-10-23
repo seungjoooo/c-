@@ -20,19 +20,18 @@ class Point
 class Circle
 {
     private:
-        int Circle_x, Circle_y;
+        Point center;
         int radius;
     public :
         void Init(int x, int y, int r)
         {
-            Circle_x=x;
-            Circle_y=y;
+            center.Init(x,y);
             radius=r;
         }
         void ShowCircleInfo()
         {
             std::cout <<"radius:"<<radius<<std::endl;
-            std::cout <<"["<<Circle_x<<","<<Circle_y<<"]"<<std::endl;
+            center.ShowPointInfo();
             
         }
 };
