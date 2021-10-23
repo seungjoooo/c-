@@ -3,11 +3,11 @@
 class FruitSeller
 {
     private:
-        int APPLE_PRICE;
+        int  APPLE_PRICE;
         int numOfApples;
         int myMoney;
     public:
-        void InitMembers(int price , int num , int money)
+        void InitMembers(int  price , int num , int money)
         {
             APPLE_PRICE = price;
             numOfApples = num;
@@ -15,13 +15,20 @@ class FruitSeller
         }
         int SaleApples(int money)
         {
+            if(money <0)
+            {
+                std::cout <<"잘못된 정보가 입력되어 판매가 취소됩니다"<<std::endl;
+                return 0;
+            }
             int num=money/APPLE_PRICE;
             numOfApples-=num;
             myMoney+=(num*APPLE_PRICE);
             return num;
             
+            
+           
         }
-        int ShowApplePrice()
+        const int ShowApplePrice()
         {
             return APPLE_PRICE;
         }
@@ -43,9 +50,18 @@ class FruitBuyer
         }
         void BuyApples(FruitSeller &p,int money)
         {
+            if(money < 0)
+            {
+                std::cout<<"잘못된 정보가 입력되어 구매가 취소됩니다"<<std::endl;
+                return ;
+            }
+            
+                
             int AppleNum = p.SaleApples(money);
             numOfApple+=AppleNum;
             myMoney-=(AppleNum*p.ShowApplePrice());
+            
+           
         }
         void ShowBuyResult()
         {
